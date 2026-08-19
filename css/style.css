@@ -1,0 +1,889 @@
+/* === IMPORTAR GOOGLE SANS & RAJDHANI === */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&family=Rajdhani:wght@700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+    --bg-deep: #05070a;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* === CONFIGURACIÓN DEL FONDO === */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #000;
+    font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--text-main);
+}
+
+/* BACKGROUND ZOOM ANIMATION LAYER */
+#bg-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img3.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* LA SOMBRA SOBRE EL FONDO (10% de opacidad plana) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* === LAYOUT ESTRUCTURAL === */
+.main-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+    }
+}
+
+/* === SIDEBAR (Glass) === */
+.sidebar {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(1, 0, 51, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 80px);
+    position: sticky;
+    top: 40px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-text .nebula-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.logo-text .systems-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.sidebar h2 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-top: 40px;
+    background: linear-gradient(to bottom, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-info {
+    margin-top: auto;
+}
+
+.contact-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sidebar-email {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: block;
+}
+
+/* === CONTENT AREA === */
+.content-area {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+nav.main-nav {
+    --bg-color: rgba(10, 10, 15, 0.55);
+    --highlight: rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    border-radius: 100px;
+    box-shadow: 0 20px 40px rgba(1, 0, 51, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: white; }
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lang-btn:hover { background: rgba(255, 255, 255, 0.25); color: white; transform: scale(1.05); }
+
+/* === PERFECT LIQUID GLASS CARD === */
+.glass-card {
+  --bg-color: rgba(255, 255, 255, 0.25);
+  --highlight: rgba(255, 255, 255, 0.75);
+  --text: #ffffff;
+  
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(1, 0, 51, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* --- BASE DE POSICIÓN PARA TODAS LAS CAPAS --- */
+.glass-filter, .glass-filter2,
+.glass-overlay, .glass-overlay2,
+.glass-specular, .glass-specular2,
+.glass-distortion-overlay, .glass-distortion-overlay2 {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* Capa 1: El efecto de distorsión */
+.glass-filter {
+  z-index: 1;
+  backdrop-filter: blur(1px);
+  filter: url(#glass-distortion) saturate(100%) brightness(1.1);
+  will-change: filter;
+}
+
+.glass-filter2 {
+  z-index: 1;
+  backdrop-filter: blur(1px);
+  filter: url(#glass-distortion2) saturate(100%) brightness(1.1);
+  will-change: filter;
+}
+
+/* Capa 2: Color de fondo */
+.glass-overlay {
+  z-index: 2;
+  background: var(--bg-color);
+}
+
+.glass-overlay2 {
+  z-index: 2;
+  background: var(--bg-color);
+}
+
+/* Capa 3: Efecto de distorsión flotante */
+.glass-distortion-overlay,
+.glass-distortion-overlay2 {
+  z-index: 3; 
+  background: radial-gradient(circle at 20% 30%, rgba(94, 0, 0, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(94, 0, 0, 0.05) 0%, transparent 40%);
+  background-size: 300% 300%;
+  animation: floatDistort 10s infinite ease-in-out;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Capa 4: El brillo del borde (Specular) */
+.glass-specular {
+  z-index: 4;
+  box-shadow: inset 1px 1px 1px var(--highlight);
+  pointer-events: none;
+}
+
+.glass-specular2 {
+  z-index: 4;
+  box-shadow: inset 1px 1px 1px var(--highlight);
+  pointer-events: none;
+}
+
+/* Capa 5: Contenido */
+.glass-content {
+  position: relative;
+  z-index: 5;
+  padding: 20px;
+  color: var(--text);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === JERARQUÍA TIPOGRÁFICA === */
+.glass-content h1 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(to bottom, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-content h2 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(to bottom, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-content h3 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(to bottom, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-content h4 {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95), #64748b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-content p {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+  margin: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .glass-card {
+    --bg-color: rgba(0, 0, 0, 0.25);
+    --highlight: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes floatDistort {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* === BENTO GRID === */
+.hero-wrapper { width: 100%; }
+.hero-card { 
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .bento-grid { grid-template-columns: 1fr; }
+}
+
+.bento-item { min-height: 300px; }
+.wide-item { grid-column: span 2; }
+
+@media (max-width: 768px) {
+    .wide-item { grid-column: span 1; }
+}
+
+/* === BUTTONS === */
+.btn-primary {
+    background: white;
+    color: black;
+    padding: 12px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* === TERMINAL & LABELS === */
+.tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.terminal-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.client-showcase-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+@media (max-width: 600px) {
+    .client-showcase-container { flex-direction: column; text-align: center; }
+}
+
+/* === SVG HERO DECORATION === */
+.hero-svg-deco {
+    flex-shrink: 0;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 20px rgba(91, 33, 204, 0.5));
+}
+
+@keyframes bounce-lines {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+#line-v1, #line-v2, #node-server, #reflectores, #particles {
+    animation: bounce-lines 3s ease-in-out infinite alternate;
+}
+#line-v2 { animation-delay: 0.2s; }
+#node-server, #reflectores, #particles { animation-delay: 0.4s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.particle { animation: floatUp linear infinite; }
+.p1 { animation-duration: 2.2s; animation-delay: 0s; }
+.p2 { animation-duration: 2.5s; animation-delay: 0.3s; }
+.p3 { animation-duration: 2s; animation-delay: 0.6s; }
+.p4 { animation-duration: 2.8s; animation-delay: 0.2s; }
+.p5 { animation-duration: 2.3s; animation-delay: 0.4s; }
+
+/* === NEON ACCENT CARD (UIverse) === */
+.neon-card {
+    position: relative;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    gap: 8px;
+    border-radius: 16px;
+    cursor: pointer;
+    overflow: visible;
+    min-height: 200px;
+}
+
+.neon-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -5px;
+    margin: auto;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 18px;
+    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+    z-index: -1;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.neon-card::after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+    transform: translate3d(0, 0, 0) scale(0.95);
+    filter: blur(20px);
+    border-radius: 16px;
+}
+
+.neon-card:hover::after { filter: blur(30px); }
+.neon-card:hover::before { transform: rotate(-90deg) scaleX(1.34) scaleY(0.77); }
+
+.neon-heading {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.05em;
+}
+
+/* === SOCIAL BUTTONS === */
+.social-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.social-btn-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+}
+
+.social-btn:hover .social-btn-shimmer { transform: translateX(100%); }
+
+.social-btn-icon {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-btn--whatsapp { border-color: rgba(37, 211, 102, 0.2); color: #25D366; }
+.social-btn--whatsapp:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+    border-color: rgba(37, 211, 102, 0.5);
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(0,0,0,0.4));
+}
+
+/* === CONTACT FORM === */
+.contact-form-group {
+    margin-bottom: 16px;
+}
+
+.contact-form-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 6px;
+}
+
+.contact-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: white;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+.contact-input:focus {
+    border-color: rgba(99, 102, 241, 0.6);
+    background: rgba(99, 102, 241, 0.06);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 28px;
+    margin-top: 8px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(59, 130, 246, 0.8));
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 10px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
+}
+
+.btn-send:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(59, 130, 246, 1));
+}
+
+.btn-send:active { transform: translateY(0); }
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* === TEXT ANIMATIONS (Subtle & Pro) === */
+@keyframes typing {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tag {
+    display: inline-block;
+    color: #4ade80;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    position: relative;
+    /* Efecto de escritura tipo hacker */
+    animation: typing 1.5s steps(20, end) forwards;
+}
+
+.hero-content h1 {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-content p {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-content .btn-outline {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+/* === MOBILE RESPONSIVENESS (Refinements) === */
+.sidebar-content {
+    position: relative;
+    z-index: 5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+.contact-content {
+    align-items: flex-start;
+    text-align: left;
+    padding: 40px;
+}
+.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+.mobile-show {
+    display: none;
+}
+.neon-metrics {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+@media (max-width: 900px) {
+    /* 1. Compact Sidebar turning into a top header */
+    .sidebar-content {
+        padding: 20px 24px;
+        flex-direction: row;
+        align-items: center;
+    }
+    .sidebar-top {
+        display: none; /* Removed completely to favor the new unified mobile navbar */
+    }
+    .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        margin-top: 0;
+    }
+    .contact-label, .sidebar-email {
+        display: none; /* Keep only the Call to Action buttons */
+    }
+    .contact-info > div {
+        margin-top: 0 !important;
+    }
+    .contact-info .btn-primary {
+        width: auto !important;
+        padding: 10px 20px;
+        white-space: nowrap;
+    }
+    .mobile-hide {
+        display: none !important;
+    }
+    .mobile-show {
+        display: flex !important;
+    }
+    
+    /* Navbar Mobile Fix */
+    nav.main-nav {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+        border-radius: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 2. Hero Section Reflow (Stack SVG under text) */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+    .hero-content > div {
+        text-align: center !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-svg-deco svg {
+        transform: scale(0.8);
+    }
+    
+    /* 3. Contact Form & Neon Wraps */
+    .contact-content {
+        padding: 24px;
+    }
+    .contact-wrapper {
+        gap: 30px;
+        flex-direction: column;
+    }
+    .neon-card {
+        padding: 24px !important;
+    }
+    .neon-metrics {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Fix amontonamiento de botones en sidebar móvil */
+    .sidebar-content {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    .sidebar-top {
+        width: 100%;
+        justify-content: center;
+    }
+    .contact-info {
+        width: 100%;
+        justify-content: center;
+    }
+    .contact-info .btn-primary {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
