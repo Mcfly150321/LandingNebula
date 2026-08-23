@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const subject = (document.getElementById('cf-subject')?.value || '').trim() || 'Inquiry from Nebula Website';
         const message = (document.getElementById('cf-message')?.value || '').trim();
         const body    = name ? 'Name: ' + name + '\n\n' + message : message;
-        window.location.href = 'mailto:20arturomaldonado@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        window.location.href = 'mailto:info@nebulasd.solutions?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     };
 
     // === BACKGROUND SCROLL ZOOM ANIMATION ===
