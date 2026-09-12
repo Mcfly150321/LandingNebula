@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_subtitle: "Accelerating enterprises into the digital era",
             hero_desc: "Architecting bespoke technology infrastructure to modernize and scale commercial operations.",
             hero_btn: "Let's Connect",
-            about_label: "ABOUT NEBULA SYSTEMS",
+            about_label: "ABOUT NEBULA SOFTWARE DEVELOPMENT",
             about_title: "Engineering the Future of Enterprise Software",
-            about_company: "Nebula Systems is a premier software engineering firm backed by our faith in the Creator God of the universe. Dedicated to catalyzing the digital evolution of businesses in Guatemala, we specialize in architecting robust technological infrastructure — encompassing bespoke software ecosystems, scalable digital platforms, and optimized operational frameworks — designed to modernize and elevate commercial operations to global standards.",
+            about_company: "NEBULA SOFTWARE DEVELOPMENT is a premier software engineering firm backed by our faith in the Creator God of the universe. Dedicated to catalyzing the digital evolution of businesses in Guatemala, we specialize in architecting robust technological infrastructure — encompassing bespoke software ecosystems, scalable digital platforms, and optimized operational frameworks — designed to modernize and elevate commercial operations to global standards.",
             mission_label: "CORE DIRECTIVE",
             mission_title: "Our Mission",
             mission_text: "Grounded in our core values, our mission is to engineer scalable, enterprise-grade technological solutions that drive digital transformation. By architecting adaptive software ecosystems and implementing flexible investment models optimized for the Guatemalan market, we empower organizations to streamline operations, maximize efficiency, and generate quantifiable economic growth.",
@@ -86,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_subtitle: "Acelerando empresas hacia la era digital",
             hero_desc: "Arquitectando infraestructura tecnológica a medida para modernizar y escalar operaciones comerciales.",
             hero_btn: "Conectemos",
-            about_label: "SOBRE NEBULA SYSTEMS",
+            about_label: "SOBRE NEBULA SOFTWARE DEVELOPMENT",
             about_title: "Diseñando el Futuro del Software Empresarial",
-            about_company: "Nebula Systems es una firma de élite en ingeniería de software, respaldada en nuestra fe en el Dios creador del universo. Dedicados a catalizar la evolución digital de las empresas en Guatemala, nos especializamos en la arquitectura de infraestructura tecnológica robusta —que abarca ecosistemas de software a medida, plataformas digitales escalables y marcos operativos optimizados— diseñada para modernizar y elevar las operaciones comerciales a estándares globales.",
+            about_company: "NEBULA SOFTWARE DEVELOPMENT es una firma de élite en ingeniería de software, respaldada en nuestra fe en el Dios creador del universo. Dedicados a catalizar la evolución digital de las empresas en Guatemala, nos especializamos en la arquitectura de infraestructura tecnológica robusta —que abarca ecosistemas de software a medida, plataformas digitales escalables y marcos operativos optimizados— diseñada para modernizar y elevar las operaciones comerciales a estándares globales.",
             mission_label: "DIRECTIVA CENTRAL",
             mission_title: "Nuestra Misión",
             mission_text: "Cimentados en nuestros valores fundamentales, nuestra misión es diseñar soluciones tecnológicas escalables de nivel empresarial que impulsen la transformación digital. Mediante la ingeniería de ecosistemas de software adaptables y la implementación de modelos de inversión flexibles optimizados para el mercado guatemalteco, empoderamos a las organizaciones para optimizar procesos, maximizar la eficiencia y generar un crecimiento económico cuantificable.",
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    let currentLang = 'en';
+    let currentLang = 'es';
     const langToggleBtn = document.getElementById('langToggle');
     const langToggleEsBtn = document.getElementById('langToggleEsMobile');
     const langToggleEnBtn = document.getElementById('langToggleEnMobile');
@@ -148,6 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = 'en';
         translatePage('en');
     });
+
+    // Idioma por defecto: Español
+    translatePage('es');
 
     // === CONTACT FORM: open mailto with subject + body ===
     window.sendEmail = function() {
